@@ -23,7 +23,9 @@
 						<a class="btn btn-sm btn-outline-secondary mx-1" href="{{ route('login') }}">Login</a>
 						<a class="btn btn-sm btn-outline-secondary" href="{{ route('register') }}">Register</a>
                     @else
-						<a class="btn btn-sm btn-outline-secondary mx-1" href="#">Dashboard</a>
+                    	@if(auth()->user()->hasRole('Admin'))
+							<a class="btn btn-sm btn-outline-secondary mx-1" href="{{ route('admin.dashboard') }}">Dashboard</a>
+						@endif
                         <a class="btn btn-sm btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
