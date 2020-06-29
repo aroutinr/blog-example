@@ -8,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public const TITLE = 'Users';
+
     use Notifiable;
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->role === $role;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    } 
 }
