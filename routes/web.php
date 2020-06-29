@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('welcome');
 
 Auth::routes();
 
 Route::group([
+    'as' => 'admin.',
     'prefix' => 'admin',
     'namespace' => 'Admin',
     'middleware' => ['auth', 'admin']
 ], function () {
-	Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+	Route::view('/', 'admin.dashboard')->name('dashboard');
+	Route::resources([
+	    'categories' => 'CategoryController',
+	    'posts' => 'PostController',
+	    'users' => 'UserController'
+	], ['except' => ['create', 'show', 'edit']]);
 });

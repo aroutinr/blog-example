@@ -35,7 +35,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
                                 <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
+                                Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
@@ -70,8 +70,15 @@
                     <h1 class="h2">{{ $title ?? 'Dashboard' }}</h1>
                 </div>
                 @if (session('status'))
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-primary" role="alert">
                         {{ session('status') }}
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        @foreach ($errors->all() as $error)
+                            <p class="mb-0">{{ $error }}</p>
+                        @endforeach
                     </div>
                 @endif
                 @yield('content')
@@ -84,5 +91,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>
