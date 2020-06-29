@@ -57,9 +57,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a href="{{ route('admin.data-importer.index') }}" class="nav-link {{ (request()->is('admin/data-importer*')) ? 'active' : '' }}">
                                 <span data-feather="layers"></span>
-                                Import Data
+                                Data Importer
                             </a>
                         </li>
                     </ul>

@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use MathieuTu\JsonSyncer\Contracts\JsonImportable;
+use MathieuTu\JsonSyncer\Traits\JsonImporter;
 
-class Post extends Model
+class Post extends Model implements JsonImportable
 {
+    use JsonImporter;
+    
 	public const TITLE = 'Posts';
 
     /**

@@ -29,4 +29,7 @@ Route::group([
 	    'posts' => 'PostController',
 	    'users' => 'UserController'
 	], ['except' => ['create', 'show', 'edit']]);
+	Route::get('/data-importer', 'DataImporterController@index')->name('data-importer.index');
+	Route::post('/data-importer', 'DataImporterController@import')->name('data-importer.import');
+	Route::get('/data-importer/run-queue-worker', 'DataImporterController@runQueueWorker')->name('data-importer.run-queue-worker');
 });
