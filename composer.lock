@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dcbdc80776ca79d6311b8f92c5a4b5",
+    "content-hash": "2857ac014cfc1ca8b1f4a89260e6cd51",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1199,6 +1199,50 @@
                 }
             ],
             "time": "2020-05-18T15:13:39+00:00"
+        },
+        {
+            "name": "mathieutu/laravel-json-syncer",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mathieutu/laravel-json-syncer.git",
+                "reference": "6437645d580bdf7287bdbfd8ac9015c4e7ba57a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mathieutu/laravel-json-syncer/zipball/6437645d580bdf7287bdbfd8ac9015c4e7ba57a2",
+                "reference": "6437645d580bdf7287bdbfd8ac9015c4e7ba57a2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/database": "^5.4 | ^6.0 | ^7.0",
+                "illuminate/support": "^5.4 | ^6.0 | ^7.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^9.0",
+                "squizlabs/php_codesniffer": "^3.4"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "MathieuTu\\JsonSyncer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathieu TUDISCO",
+                    "email": "oss@mathieutu.dev"
+                }
+            ],
+            "description": "Export and import your models to/from JSON",
+            "time": "2020-03-09T15:44:31+00:00"
         },
         {
             "name": "monolog/monolog",
