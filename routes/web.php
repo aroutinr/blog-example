@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('welcome');
-
 Auth::routes();
+
+Route::group([
+    'as' => 'blog.',
+    'namespace' => 'Blog'
+], function () {
+	Route::get('/', 'BlogController@index')->name('index');
+	Route::get('categories/{category:name}', 'CategoryController@show')->name('categories.show');
+	Route::get('archives/{post_year}/{post_month}', 'ArchiveController@show')->name('archives.show');
+});
 
 Route::group([
     'as' => 'admin.',

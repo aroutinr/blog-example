@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Category;
+use App\Post;
+use App\User;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,13 +28,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('admin.categories.*', function ($view) {
-            $view->with('title', \App\Category::TITLE);
+            $view->with('title', Category::TITLE);
         });
         View::composer('admin.posts.*', function ($view) {
-            $view->with('title', \App\Post::TITLE);
+            $view->with('title', Post::TITLE);
         });
         View::composer('admin.users.*', function ($view) {
-            $view->with('title', \App\User::TITLE);
+            $view->with('title', User::TITLE);
+        });
+        View::composer('blog.*', function ($view) {
+            $view->with('categories', Category::whereHas('posts')->get());
+            $view->with('posts_filter_by_month', Post::postsFilterByMonth());
         });
     }
 }
