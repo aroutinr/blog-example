@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::view('no-posts', 'no-posts')->name('no-posts');
+
 Route::group([
     'as' => 'blog.',
     'namespace' => 'Blog'
