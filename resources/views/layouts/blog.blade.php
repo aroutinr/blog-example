@@ -26,6 +26,9 @@
                     	@if(auth()->user()->hasRole('Admin'))
 							<a class="btn btn-sm btn-outline-secondary mx-1" href="{{ route('admin.dashboard') }}">Dashboard</a>
 						@endif
+						@if(auth()->user()->hasRole('Author') || auth()->user()->hasRole('Admin'))
+							<a class="btn btn-sm btn-outline-secondary mx-1" href="{{ route('blog.my-posts') }}">My posts</a>
+						@endif
                         <a class="btn btn-sm btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

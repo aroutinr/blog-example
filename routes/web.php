@@ -22,6 +22,8 @@ Route::group([
 	Route::get('/', 'BlogController@index')->name('index');
 	Route::get('categories/{category:name}', 'CategoryController@show')->name('categories.show');
 	Route::get('archives/{post_year}/{post_month}', 'ArchiveController@show')->name('archives.show');
+	Route::get('my-posts/{sort?}', 'PostController@index')->name('my-posts')->middleware('auth');
+	Route::post('my-posts', 'PostController@store')->name('posts.store')->middleware('auth');
 });
 
 Route::group([
