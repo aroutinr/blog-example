@@ -29,7 +29,6 @@
 			<textarea name="description" type="text" class="form-control" placeholder="Description" rows="1" value="{{ old('description') }}"></textarea>
 		</div>
 		<div class="col-xs-12 col-md-4 my-1">
-			<input type="hidden" name="password" value="password">
 			<button class="btn btn-outline-success" title="Save Post"><span data-feather="save"></span> Save Post</button>
 		</div>
 	</div>
